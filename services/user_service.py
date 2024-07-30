@@ -9,5 +9,9 @@ def get_user_by_email(db: Session, email: str):
 
 
 def get_user_by_id(db: Session, id: int):
-    user = db.query(User).filter(User.id == id).first()
+    user = db.query(User).filter(id == User.id).first()
+
+
+def get_all_users(db: Session):
+    return db.query(User).all()
 
