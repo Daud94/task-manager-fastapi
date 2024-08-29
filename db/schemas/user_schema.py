@@ -1,19 +1,17 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, ConfigDict
 
-
-class UserBase(BaseModel):
+class UserBaseInput(BaseModel):
     first_name: str
     last_name: str
     email: EmailStr
     phone_number: str
 
-    class Config:
-        orm_mode = True
+class UserBaseOut(UserBaseInput):
+    pass
 
-
-class CreateUser(UserBase):
+class CreateUser(UserBaseInput):
     password: str
 
 
-class UserLogin(UserBase):
+class UserLogin(UserBaseInput):
     pass
